@@ -5,10 +5,14 @@ export default function Textbox(props) {
   const handleUpClick = () =>{
     let newText = text.toUpperCase();
     setText(newText)
+    props.showAlert("Text has been converted to Upper Case","success");
+
   }
   const handleLowClick = () =>{
     let newText = text.toLowerCase();
     setText(newText)
+    props.showAlert("Text has been converted to Lower Case","success");
+
   }
   const handleClearClick = () =>{
     setText("")
@@ -17,6 +21,7 @@ export default function Textbox(props) {
     var text = document.getElementById("mybox");
     text.select();
     navigator.clipboard.writeText(text.value);
+    props.showAlert("Text has been Copied","success");
   }
 
   const handleOnChange = (event) => {
